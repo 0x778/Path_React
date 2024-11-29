@@ -1,0 +1,9 @@
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+#root{
+  width: 188vh;
+  height: 95vh;
+}
