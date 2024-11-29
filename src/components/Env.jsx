@@ -5,14 +5,14 @@ import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber';
 
 function Env() {
-    const NB_POINTS = 300 ; 
+    const NB_POINTS = 1000 ; 
     const curve = useMemo(()=>{
         const curve = new THREE.CatmullRomCurve3([
             new THREE.Vector3(-2, 0, 10),
             new THREE.Vector3(-1, 0, 8),
             new THREE.Vector3(0, 0, 5),
             new THREE.Vector3(0, 0, 3),
-        ],true,"catmullrom")
+        ],false,"catmullrom")
         return curve
     })
 
@@ -25,9 +25,13 @@ function Env() {
     const scroll = useScroll();
     const lineRef= useRef();
 useFrame(() => {
+  // const curPointIndex = Math.min(Math.round(scroll.offset * linePoints.length),linePoints.length - 1)
+  // const curpoint = linePoints[curPointIndex]
+    // cam.current.position.copy(curpoint)
+  
+  // cam.current.position.z = (scroll.offset * 100);
 
-  cam.current.position.z = (scroll.offset * 100);
-//   cam.current.lookAt(lineRef)
+  // cam.current.lookAt(lineRef)
 })
   return (
     <>
@@ -37,7 +41,7 @@ useFrame(() => {
     </GizmoHelper>
     <gridHelper/>
     <axesHelper/>
-    {/* <OrbitControls/> */}
+    <OrbitControls/>
     <directionalLight/>
     <line path={linePoints} color={'white'} linewidth={10} ref={lineRef}/>
     <PerspectiveCamera makeDefault ref={cam} position={[0, 1, 10]} />
