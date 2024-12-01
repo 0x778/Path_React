@@ -16,7 +16,7 @@ const ScreenModel = (props) => {
       <group scale={0.01}>
         <group position={[0,10, 0]} rotation={[-Math.PI /2, 0, -1.5]} scale={100}>
           <mesh
-            castShadow
+            castShadoiw
             receiveShadow
             geometry={nodes.SM_TV_T_Security_TV_0.geometry}
             material={materials.T_Security_TV}
@@ -25,10 +25,10 @@ const ScreenModel = (props) => {
             castShadow
             receiveShadow
             geometry={nodes.SM_TV_base_T_Security_TV_0.geometry}
-            material={materials.T_Security_TV}
+            // material={materials.T_Security_TV}
             position={[0.053, 0.005, -0.011]}
           >
-            <Html transform as='div' rotation={[Math.PI/2, Math.PI / 2, 0]} scale={0.2}>
+            <Html style={{backgroundColor:"white"}} transform occlude rotation={[0,0,0]} distanceFactor={5} position={[1,1,1]} >
               <div className="tv-screen">
                 <h1 style={{ color: 'red' ,backgroundColor:"black" }}>Security TV</h1>
               </div>
