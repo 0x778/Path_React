@@ -3,7 +3,7 @@ import './App.css'
 import Env from './components/Env'
 import { Environment, GizmoHelper, GizmoViewcube, GizmoViewport, OrbitControls, PerspectiveCamera, ScrollControls } from '@react-three/drei'
 import { useRef } from 'react'
-import MacModel from './components/Mac'
+import ScreenModel from './components/Screen'
 function App() {
 
 const container = useRef()
@@ -19,23 +19,24 @@ const container = useRef()
     // eventSource={container}
     >
       {/* <ScrollControls pages={10} damping={1}> */}
-    <GizmoHelper alignment='bottom-left' scale={100} margin={[80, 80]}>
-        <GizmoViewcube/>
-        <GizmoViewport/>
-    </GizmoHelper>
-    <gridHelper/>
-    <axesHelper/>
-    <OrbitControls/>
-    <directionalLight/>
+    {/* <GizmoHelper alignment='bottom-left' scale={100} margin={[80, 80]}> */}
+        {/* <GizmoViewcube/> */}
+        {/* <GizmoViewport/> */}
+    {/* </GizmoHelper> */}
+    {/* <gridHelper/> */}
+    {/* <axesHelper/> */}
+    {/* <OrbitControls/> */}
+    {/* <directionalLight/> */}
     {/* <line path={} color={'white'} linewidth={10} ref={lineRef}/> */}
-    <PerspectiveCamera makeDefault position={[0, 1, 10]} fov={50} />
-    <color attach={'background'} args={['#123456']} />
-    <Environment preset='sunset'/>
+    {/* <PerspectiveCamera makeDefault position={[0, 1, 10]} fov={50} /> */}
+    {/* <color attach={'background'} args={['#111111']} /> */}
+    {/* <Environment preset='sunset'/> */}
     {/* <group rotation={[0 , 0 ,0]} position={[40,0,40]} scale={2}> */}
     {/* <MacModel portal={container}/> */}
-      {/* <Env/> */}
+      <Env/>
       {/* </ScrollControls> */}
-      <MacModel/>
+      {/* <MacModel/> */}
+      {/* <ScreenModel/> */}
     </Canvas>
       </div>
     </>

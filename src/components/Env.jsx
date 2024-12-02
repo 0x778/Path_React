@@ -3,8 +3,7 @@ import ScreenModel from './Screen'
 import { useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber';
-import MacModel from './Mac';
-import MacModel2 from './Mac2';
+import HtmlMaterial from './HtmlMaterial';
 
 function Env() {
     const NB_POINTS = 1000 ; 
@@ -45,14 +44,21 @@ useFrame(() => {
     <axesHelper/>
     <OrbitControls/>
     <directionalLight/>
-    <line path={linePoints} color={'white'} linewidth={10} ref={lineRef}/>
+    {/* <line path={linePoints} color={'white'} linewidth={10} ref={lineRef}/> */}
     <PerspectiveCamera makeDefault ref={cam} position={[0, 1, 10]} fov={50} />
     <color attach={'background'} args={['#123456']} />
     <Environment preset='sunset'/>
     {/* <group rotation={[0 , 0 ,0]} position={[40,0,40]} scale={2}> */}
     {/* <MacModel/> */}
-    <ScreenModel/>
+    {/* <ScreenModel/> */}
+    
+     <HtmlMaterial  htmlContent={<div style={{  color: 'black' , backgroundColor: "red"}}>
+            <h3>Hello 3D!</h3>
+            <input type="text" placeholder="Type here..." />
+          </div>}/>
+
     {/* </group> */}
+    <ScreenModel/>
     </>
   )
 }

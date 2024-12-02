@@ -6,9 +6,8 @@ Source: https://sketchfab.com/3d-models/hanging-security-tv-081a29a9cd2943cfb9b6
 Title: Hanging security TV
 */
 
-import { Html, useGLTF } from '@react-three/drei'
- 
-
+import { useGLTF } from '@react-three/drei'
+import HtmlMaterial from './HtmlMaterial'
 const ScreenModel = (props) => {
   const { nodes, materials } = useGLTF('/models/hanging_security_tv.glb')
   return (
@@ -25,15 +24,10 @@ const ScreenModel = (props) => {
             castShadow
             receiveShadow
             geometry={nodes.SM_TV_base_T_Security_TV_0.geometry}
-            // material={materials.T_Security_TV}
+            material={materials.T_Security_TV}
             position={[0.053, 0.005, -0.011]}
-          >
-            <Html style={{backgroundColor:"white"}} transform occlude rotation={[0,0,0]} distanceFactor={5} position={[1,1,1]} >
-              <div className="tv-screen">
-                <h1 style={{ color: 'red' ,backgroundColor:"black" }}>Security TV</h1>
-              </div>
-            </Html>
-          </mesh>
+          />
+         
         </group>
         <mesh
           castShadow
