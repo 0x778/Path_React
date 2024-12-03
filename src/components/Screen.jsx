@@ -7,13 +7,13 @@ Title: Hanging security TV
 */
 
 import { useGLTF } from '@react-three/drei'
-import HtmlMaterial from './HtmlMaterial'
+
 const ScreenModel = (props) => {
   const { nodes, materials } = useGLTF('/models/hanging_security_tv.glb')
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
-        <group position={[0,10, 0]} rotation={[-Math.PI /2, 0, -1.5]} scale={100}>
+        <group position={[0,10, 0]} rotation={[-Math.PI /2, 0, -1.5]} scale={0.1}>
           <mesh
             castShadoiw
             receiveShadow
