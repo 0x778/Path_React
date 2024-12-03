@@ -6,16 +6,17 @@ Source: https://sketchfab.com/3d-models/hanging-security-tv-081a29a9cd2943cfb9b6
 Title: Hanging security TV
 */
 
-import { useGLTF } from '@react-three/drei'
+import React, { useRef } from "react";
+import { useGLTF, Html } from "@react-three/drei";
 
 const ScreenModel = (props) => {
-  const { nodes, materials } = useGLTF('/models/hanging_security_tv.glb')
+  const { nodes, materials } = useGLTF("/models/hanging_security_tv.glb");
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} position={[0, 0, 0]}>
       <group scale={0.01}>
-        <group position={[0,10, 0]} rotation={[-Math.PI /2, 0, -1.5]} scale={0.1}>
+        <group position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
           <mesh
-            castShadoiw
+            castShadow
             receiveShadow
             geometry={nodes.SM_TV_T_Security_TV_0.geometry}
             material={materials.T_Security_TV}
@@ -24,10 +25,14 @@ const ScreenModel = (props) => {
             castShadow
             receiveShadow
             geometry={nodes.SM_TV_base_T_Security_TV_0.geometry}
-            material={materials.T_Security_TV}
             position={[0.053, 0.005, -0.011]}
-          />
-         
+          >
+            <Html transform>
+              <h3 style={{ color: "black", backgroundColor: "red" }}>
+                Hello 3DD
+              </h3>
+            </Html>
+          </mesh>
         </group>
         <mesh
           castShadow
@@ -40,9 +45,9 @@ const ScreenModel = (props) => {
         />
       </group>
     </group>
-  )
-}
+  );
+};
 
-useGLTF.preload('/models/hanging_security_tv.glb')
+useGLTF.preload("/models/hanging_security_tv.glb");
 
-export default ScreenModel
+export default ScreenModel;
